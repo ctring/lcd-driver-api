@@ -67,7 +67,7 @@ void lcdWriteCommand(uint8_t ui8Com) {
 }
 
 /*
- * Write a char to the LCD at the current string
+ * Write a char to the LCD at the cursor
  */
 
 void lcdWriteChar(char cChar) {
