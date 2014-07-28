@@ -19,9 +19,9 @@ No use of busy flag. No support for adding and displaying custom characters yet.
 
 ###Installation
 
-* Add the TivaWare™ C Series library to your project.
+* Add the TivaWare C Series library to your project.
 * Add the **lcd.c** and **lcd.h** files to your project, then include **lcd.h** in your source code.
-* Change the ports and pins definition in the **lcd.h** header file according to your hardware ports and pins interfacing. If there are locked pins among the used pins, modify the *lcdInit* function in the **lcd.c** file to unlock those pins. 
+* Change the ports and pins definition in the **lcd.h** header file according to your hardware ports and pins interfacing. If there are locked pins among the used pins, modify the ``lcdInit`` function in the **lcd.c** file to unlock those pins. 
 
 ###Functions
 
