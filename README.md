@@ -74,7 +74,7 @@ void main() {
 }
 ```
 
-**V.** ``void lcdWriteCommand(com)``
+**IV.** ``void lcdWriteCommand(com)``
 
 Send a command to the LCD. For more commands, refer [here](http://www.8051projects.net/lcd-interfacing/commands.php).
 
