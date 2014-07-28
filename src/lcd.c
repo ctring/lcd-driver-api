@@ -4,7 +4,6 @@
  *  Created on: Jul 1, 2014
  *      Author: Cuong T. Nguyen
  */
-
 #include <stdint.h>
 #include <stdbool.h>
 #include "inc/hw_types.h"
@@ -40,7 +39,6 @@ void lcdEnable() {
  * Write data to Data pins. Written data might be 4-bit or 8-bit
  * according to data8Bit variable
  */
-
 void lcdWriteData(uint8_t ui8Data) {
 	if (data8Bit) {
 		GPIOPinWrite(LCD_GPIO_DATA_BASE, DATA_PINS, ui8Data);
@@ -57,7 +55,6 @@ void lcdWriteData(uint8_t ui8Data) {
 /*
  * Send command to the LCD
  */
-
 void lcdWriteCommand(uint8_t ui8Com) {
 	GPIOPinWrite(LCD_GPIO_CTL_BASE, E_PIN, ~E_PIN);
 	//GPIOPinWrite(LCD_GPIO_CTL_BASE, RW_PIN, ~RW_PIN);
@@ -69,7 +66,6 @@ void lcdWriteCommand(uint8_t ui8Com) {
 /*
  * Write a char to the LCD at the cursor
  */
-
 void lcdWriteChar(char cChar) {
 	GPIOPinWrite(LCD_GPIO_CTL_BASE, E_PIN, ~E_PIN);
 	//GPIOPinWrite(LCD_GPIO_CTL_BASE, RW_PIN, ~RW_PIN);
@@ -81,7 +77,6 @@ void lcdWriteChar(char cChar) {
 /*
  * Write a string to the LCD
  */
-
 void lcdWriteString(char * s) {
 	while (*s) {
 		lcdWriteChar(*s);
@@ -92,7 +87,6 @@ void lcdWriteString(char * s) {
 /*
  * Clear display
  */
-
 void lcdClear() {
 	lcdWriteCommand(CLEAR_DISPLAY);
 }
@@ -100,7 +94,6 @@ void lcdClear() {
 /*
  * Clear display and write a string
  */
-
 void lcdClearAndWriteString(char * s) {
 	lcdClear();
 	lcdWriteString(s);
@@ -109,7 +102,6 @@ void lcdClearAndWriteString(char * s) {
 /*
  * Set cursor at the specified coordinate in which x is the column and y is the row
  */
-
 void lcdGoToXY(uint8_t ui8X, uint8_t ui8Y) {
 	uint8_t ui8Address;
 	// Specify the address
@@ -139,19 +131,19 @@ void lcdGoToXY(uint8_t ui8X, uint8_t ui8Y) {
  *  	+ Cursor move direction: decrement (0) or increment (1)
  *  	+ Accompanies display shift: off (0) or on (1)
  */
-
 void lcdInit(uint8_t ui8FunctionSetOptions, uint8_t ui8EntryModeSetOptions, uint8_t ui8DisplayOptions) {
 
 	SysCtlPeripheralEnable(LCD_GPIO_DATA_PERIPH);
 	SysCtlPeripheralEnable(LCD_GPIO_CTL_PERIPH);
 
+	// Unlock the locked pins, modify this if needed
 	HWREG(LCD_GPIO_DATA_BASE + GPIO_O_LOCK) = GPIO_LOCK_KEY;
 	HWREG(LCD_GPIO_DATA_BASE + GPIO_O_CR) |= 0x80;
 
 	GPIOPinTypeGPIOOutput(LCD_GPIO_DATA_BASE, DATA_PINS);
 	GPIOPinTypeGPIOOutput(LCD_GPIO_CTL_BASE, E_PIN | RS_PIN);
 
-	// Check if use 8-bit data or 4-bit data
+	// Check if using 8-bit data or 4-bit data
 	data8Bit = (ui8FunctionSetOptions & FUNCTION_SET_8_BIT) > 0;
 
 	delayMs(20);
@@ -169,7 +161,7 @@ void lcdInit(uint8_t ui8FunctionSetOptions, uint8_t ui8EntryModeSetOptions, uint
 		delayMs(20);
 	}
 
-	// initial setup
+	// Initial setup
 	lcdWriteCommand(FUNCTION_SET_BASE | ui8FunctionSetOptions);
 	lcdWriteCommand(ENTRY_MODE_SET_BASE | ui8EntryModeSetOptions);
 	lcdWriteCommand(DISPLAY_BASE | ui8DisplayOptions);
