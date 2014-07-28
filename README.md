@@ -27,7 +27,7 @@ No use of busy flag. No support for adding and displaying custom characters yet.
 
 **I.** ``void lcdInit(FunctionSetOptions, EntryModeSetOptions, DisplayOptions)``
 
-**Description **
+**Description**
 
 Initialize the LCD with several options.
 
