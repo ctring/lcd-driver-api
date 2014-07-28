@@ -13,7 +13,7 @@ Supported commands:
 * Cursor & Display shift
 * Function set
 
-No support for adding and displaying custom characters yet.
+No use of busy flag. No support for adding and displaying custom characters yet.
 
 ##Usage
 
