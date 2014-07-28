@@ -4,14 +4,13 @@
  *  Created on: Jul 7, 2014
  *      Author: Cuong T. Nguyen
  */
-
 #ifndef LCD_H_
 #define LCD_H_
 
 /*
  * Pins interfacing:
  * RS   --- PA2
- * R/W  --- GND
+ * R/W  --- GND         
  * E    --- PA3
  * DB0  --- Not used
  * DB1  --- Not used
@@ -41,8 +40,8 @@
 #define SHIFT_BASE 					0x10
 #define SHIFT_DISPLAY 				0x08 // cursor move by default
 #define SHIFT_RIGHT 				0x04 // shift to the left by default
-#define CLEAR_DISPLAY 0x01
-#define RETURN_HOME 0x02
+#define CLEAR_DISPLAY 				0x01
+#define RETURN_HOME 				0x02
 
 /*
  * Change this according to pins interfacing

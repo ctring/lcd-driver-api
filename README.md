@@ -2,7 +2,7 @@
 
 ##Description
 
-This is an API for Tiva™ C Series Launchpad from Texas Instrument to control a [16x2 LCD](http://www.8051projects.net/lcd-interfacing/index.php)
+This is an API for Tiva C Series Launchpad from Texas Instrument to control a [16x2 LCD](http://www.8051projects.net/lcd-interfacing/index.php)
 
 Supported commands: 
 
@@ -21,7 +21,7 @@ No support for adding and displaying custom characters yet.
 
 * Add the TivaWare™ C Series library to your project.
 * Add the **lcd.c** and **lcd.h** files to your project, then include **lcd.h** in your source code.
-* Change the ports and pins definition in the **lcd.h** header file according to your hardware ports and pins interfacing.
+* Change the ports and pins definition in the **lcd.h** header file according to your hardware ports and pins interfacing. If there are locked pins among the used pins, modify the *lcdInit* function in the **lcd.c** file to unlock those pins. 
 
 ###Functions
 
@@ -85,7 +85,7 @@ void main() {
 	lcdInit(...);
     while (1) {
         lcdWriteString('Helll world!');
-    	lcdWriteCommand(0x02);  // Return the cursor to home
+    	lcdWriteCommand(RETURN_HOME);  // Return the cursor to home (RETURN_HOME == 0x02)
         lcdWriteString('Hello')
         // There should be a 20ms delay here
     }
