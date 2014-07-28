@@ -43,17 +43,16 @@ Initialize the LCD with several options.
 
 ```
 void main() {
-	lcdInit(FUNCTION_SET_BASE | FUNCTION_SET_8_BIT | FUNCTION_SET_2_LINES, 
-    		ENTRY_MODE_SET_BASE |  ENTRY_MODE_SET_INCREMENT,
-            DISPLAY_BASE | DISPLAY_ON);
+	lcdInit(FUNCTION_SET_8_BIT | FUNCTION_SET_2_LINES, ENTRY_MODE_SET_INCREMENT, DISPLAY_ON);
     while (1) {
     ...
     }
 }
 ```
-* Every parameter must start with its base. 
-* The options are separated with the OR operator ( | )
-* Look into the **lcd.h** file for more options
+
+* The options are separated with the OR operator ( | ).
+* DISPLAY_ON should always be used to turn the display on at the start. 
+* Look into the **lcd.h** file for more options.
 
 **II.** ``void lcdWriteChar(char cChar)``
 
