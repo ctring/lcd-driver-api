@@ -109,7 +109,7 @@ Set the cursor at the x column and y row (0-based).
 
 ##Testing
 
-Tested on Tiva™ C Series LaunchPad
+Tested on Tiva C Series LaunchPad
 
 ##License
 
